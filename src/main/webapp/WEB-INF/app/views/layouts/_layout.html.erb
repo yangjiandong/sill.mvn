@@ -76,7 +76,7 @@
           <li class="h2">System</li>
           <li class="<%= 'selected' if request.fullpath.include?('/settings') -%>"><a href="<%= ApplicationController.root_context -%>/settings/index">Settings</a></li>
           <li class="<%= 'selected' if controller.controller_path=='backup' -%>"><a href="<%= ApplicationController.root_context -%>/backup">Backup</a></li>
-          <li class="<%= 'selected' if controller.controller_path=='system' -%>"><a href="/system">系统信息</a></li>
+          <li class="<%= 'selected' if controller.controller_path=='system' -%>"><a href="system">系统信息</a></li>
 
         <% end %>
         </ul>
@@ -96,9 +96,9 @@
   </div>
 </div>
 
-<%# <% if (@my_menu_items) %> 
-  <%# <%= render_navigation :items => @my_menu_items %> 
-<%# <% end%> 
- 
+<%# <% if (@my_menu_items) %>
+  <%# <%= render_navigation :items => @my_menu_items %>
+<%# <% end%>
+
 <%= render :partial => 'layouts/info' %>
 

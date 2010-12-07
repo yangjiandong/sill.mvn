@@ -12,12 +12,12 @@
     </context-param>
 
     <!--
-     Force rewriting of requests that end in '/' to be passed through to the container as '/index.html'. Default is false, but is turned on for Jetty by default to avoid triggering directory index pages
-        <context-param>
-            <param-name>jruby.rack.slash.index</param-name>
-            <param-value>true</param-value>
-        </context-param>
-    -->
+         Force rewriting of requests that end in '/' to be passed through to the container as '/index.html'. Default is false, but is turned on for Jetty by default to avoid triggering directory index pages
+            <context-param>
+                <param-name>jruby.rack.slash.index</param-name>
+                <param-value>true</param-value>
+            </context-param>
+        -->
 
     <context-param>
         <param-name>public.root</param-name>
@@ -71,6 +71,26 @@
     <listener>
         <listener-class>org.jruby.rack.rails.RailsServletContextListener</listener-class>
     </listener>
+
+<!--
+    <servlet>
+        <servlet-name>chart</servlet-name>
+        <servlet-class>org.sonar.server.charts.ChartsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>chart</servlet-name>
+        <url-pattern>/chart</url-pattern>
+    </servlet-mapping>
+    -->
+    <servlet>
+        <servlet-name>gchart</servlet-name>
+        <servlet-class>org.jfree.eastwood.ChartServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>gchart</servlet-name>
+        <url-pattern>/gchart</url-pattern>
+    </servlet-mapping>
 
     <session-config>
         <session-timeout>30</session-timeout>
