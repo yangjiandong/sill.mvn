@@ -5,11 +5,19 @@
     version="2.4">
 
     <display-name>JROR Application</display-name>
-    
+
     <context-param>
         <param-name>rails.env</param-name>
-        <param-value>production</param-value>
+        <param-value>development</param-value>
     </context-param>
+
+    <!--
+     Force rewriting of requests that end in '/' to be passed through to the container as '/index.html'. Default is false, but is turned on for Jetty by default to avoid triggering directory index pages
+        <context-param>
+            <param-name>jruby.rack.slash.index</param-name>
+            <param-value>true</param-value>
+        </context-param>
+    -->
 
     <context-param>
         <param-name>public.root</param-name>
