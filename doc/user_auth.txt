@@ -1,0 +1,52 @@
+用户权限
+=========
+
+1. 用户
+
+   t_users
+
+   注意,采用restful_authentication,登录页面login, new 必须保持一致
+
+   model - User
+
+    include NeedAuthentication::ForUser
+
+    def self.included(recipient)
+      recipient.extend(ModelClassMethods)
+    end
+
+    扩展类方法(class method),这样User可直接用authenticate(login,password), editable_password? 方法
+    --具体参考 http://www.javaeye.com/topic/470421 
+    
+    这样扩展后,在控制器:
+    sessions_controller.login
+    ..
+      User.authenticate(login, password)
+    ..
+    可直接用这个类方法
+   
+2. 用户组
+
+   t_groups
+
+   t_groups_users
+
+
+3. 用户组对应可操作对象
+
+   t_resources
+   --rails generate model ModelName [field:type, field:type] 
+   rails g model resource resname:string,resurl:string,description:string
+   --rails generate migration create_resources_table
+
+   t_groups_resources
+
+4. 判断角色
+   
+   UsersController, before_filter 
+   :admin_required --> need_authorization
+   has_role?(:administrator) --> default_authorizer.has_role?(role, objects=nil)
+
+
+
+   --END

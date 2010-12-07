@@ -1,0 +1,10 @@
+#ftlinks
+  Powered by
+  %a.external{:href => "http://www.sonarsourne.com", :target => "SonarSource"} JROR Developer
+  \- v.#{'1.0.0'} - &copy; 2008-#{Date.today.year} 版权所有
+ 
+<div id="ftlinks">
+Powered by <a href="http://www.sonarsource.com" target="SonarSource" class="external">JROR Developer</a>
+ - v.<%= '1.0.0' -%>
+ - &copy; 2008-<%= Date.today.year %> 版权所有
+</div>

@@ -1,0 +1,14 @@
+syntax: glob
+*.ser
+*.class
+*~
+*.bak
+*.swp
+
+.idea/
+.DS_Store
+m.bat
+target
+.settings
+.classpath
+.project
