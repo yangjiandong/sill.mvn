@@ -8,6 +8,8 @@ Sill - rails3
    org.jruby.rack.RackInitializationException: No such file or directory - D:/workspace/jruby/config/database.yml|...
 
    打包生成war,放到tomcat,运行正常.
+   将整个项目移到其它地方d:\a\sill.mvn,配置下config/database.yml development数据源,就能正常.
+   原来目录为 d:\workspace\jruby\workspace\sill.mvn\
 
 2010.11.07
 ----------
