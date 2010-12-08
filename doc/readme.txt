@@ -1,6 +1,14 @@
 Sill - rails3
 =============
 
+2010.11.08
+----------
+
+   1. 怪异现象,用mvn jetty:run 报:
+   org.jruby.rack.RackInitializationException: No such file or directory - D:/workspace/jruby/config/database.yml|...
+
+   打包生成war,放到tomcat,运行正常.
+
 2010.11.07
 ----------
 
