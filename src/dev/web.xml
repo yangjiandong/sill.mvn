@@ -31,7 +31,7 @@
 
     <context-param>
         <param-name>jruby.max.runtimes</param-name>
-        <param-value>1</param-value>
+        <param-value>3</param-value>
     </context-param>
 
     <!--
@@ -62,15 +62,17 @@
 
     <filter>
         <filter-name>RackFilter</filter-name>
-        <filter-class>org.jruby.rack.RackFilter</filter-class>
+        <filter-class>org.sill.filter.SillRackFilter</filter-class>
+        <init-param>
+            <description>List of files extensions that will not be processed by the rack filter</description>
+            <param-name>exclusions</param-name>
+            <param-value>gif,png,ico,jpg,jpeg,css,js</param-value>
+        </init-param>
     </filter>
     <filter-mapping>
         <filter-name>RackFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    <listener>
-        <listener-class>org.jruby.rack.rails.RailsServletContextListener</listener-class>
-    </listener>
 
     <servlet>
         <servlet-name>chart</servlet-name>
@@ -90,6 +92,19 @@
         <servlet-name>gchart</servlet-name>
         <url-pattern>/gchart</url-pattern>
     </servlet-mapping>
+
+    <!--
+        <listener>
+            <listener-class>org.jruby.rack.rails.RailsServletContextListener</listener-class>
+        </listener>
+        -->
+
+    <listener>
+        <listener-class>org.sill.platform.PlatformLifecycleListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>ch.qos.logback.classic.selector.servlet.ContextDetachingSCL</listener-class>
+    </listener>
 
     <session-config>
         <session-timeout>30</session-timeout>
