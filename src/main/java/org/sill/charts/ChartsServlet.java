@@ -1,43 +1,27 @@
-/*
- * Sonar, open source software quality management tool.
- * Copyright (C) 2009 SonarSource SA
- * mailto:contact AT sonarsource DOT com
- *
- * Sonar is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
- *
- * Sonar is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with Sonar; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02
- */
 package org.sill.charts;
 
-import org.apache.commons.io.IOUtils;
-import org.jfree.chart.encoders.KeypointPNGEncoderAdapter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.sonar.api.charts.Chart;
-import org.sonar.api.charts.ChartParameters;
-import org.sonar.server.charts.deprecated.*;
-import org.sonar.server.platform.Platform;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.io.IOUtils;
+import org.jfree.chart.encoders.KeypointPNGEncoderAdapter;
+import org.sill.charts.deprecated.BarChart;
+import org.sill.charts.deprecated.BaseChartWeb;
+import org.sill.charts.deprecated.CustomBarChart;
+import org.sill.charts.deprecated.DeprecatedChart;
+import org.sill.charts.deprecated.PieChart;
+import org.sill.charts.deprecated.SparkLinesChart;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ChartsServlet extends HttpServlet {
 
@@ -50,22 +34,23 @@ public class ChartsServlet extends HttpServlet {
       deprecatedDoGet(request, response);
 
     } else {
-      ChartFactory chartFactory = Platform.getInstance().getContainer().getComponent(ChartFactory.class);
-      Chart chart = chartFactory.getChart(request.getParameter("ck"));
-      if (chart != null) {
-        BufferedImage image = chart.generateImage(getParams(request));
-        OutputStream out = response.getOutputStream();
-        try {
-          response.setContentType("image/png");
-          exportAsPNG(image, out);
-
-        } catch (Exception e) {
-          LOG.error("Generating chart " + chart.getClass().getName(), e);
-
-        } finally {
-          out.close();
-        }
-      }
+        //TODO 暂时不提供
+//      ChartFactory chartFactory = Platform.getInstance().getContainer().getComponent(ChartFactory.class);
+//      Chart chart = chartFactory.getChart(request.getParameter("ck"));
+//      if (chart != null) {
+//        BufferedImage image = chart.generateImage(getParams(request));
+//        OutputStream out = response.getOutputStream();
+//        try {
+//          response.setContentType("image/png");
+//          exportAsPNG(image, out);
+//
+//        } catch (Exception e) {
+//          LOG.error("Generating chart " + chart.getClass().getName(), e);
+//
+//        } finally {
+//          out.close();
+//        }
+//      }
     }
   }
 

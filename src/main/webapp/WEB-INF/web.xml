@@ -72,16 +72,15 @@
         <listener-class>org.jruby.rack.rails.RailsServletContextListener</listener-class>
     </listener>
 
-<!--
     <servlet>
         <servlet-name>chart</servlet-name>
-        <servlet-class>org.sonar.server.charts.ChartsServlet</servlet-class>
+        <servlet-class>org.sill.charts.ChartsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>chart</servlet-name>
         <url-pattern>/chart</url-pattern>
     </servlet-mapping>
-    -->
+
     <servlet>
         <servlet-name>gchart</servlet-name>
         <servlet-class>org.jfree.eastwood.ChartServlet</servlet-class>

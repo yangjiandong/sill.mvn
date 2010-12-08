@@ -61,7 +61,6 @@
         <dependency>
             <groupId>org.jruby.rack</groupId>
             <artifactId>jruby-rack</artifactId>
-            <version>1.0.3</version>
         </dependency>
         <dependency>
             <!-- GZIP filter -->
@@ -79,13 +78,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifestEntries>
-                            <version>${project.version}</version>
-                        </manifestEntries>
-                    </archive>
-                </configuration>
             </plugin>
 
             <!-- compiler插件, 设定JDK版本 -->
@@ -185,6 +177,7 @@
                         <contextPath>/dev</contextPath>
                         <descriptor>${basedir}/src/dev/web.xml</descriptor>
                     </webAppConfig>
+
                     <connectors>
                         <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
                             <port>9001</port>
@@ -218,12 +211,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-eclipse-plugin</artifactId>
-                <configuration>
-                    <wtpversion>2.0</wtpversion>
-                    <additionalProjectnatures>
-                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
-                    </additionalProjectnatures>
-                </configuration>
             </plugin>
 
         </plugins>

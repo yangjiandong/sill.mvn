@@ -11,6 +11,8 @@ Sill - rails3
       mv eclipse:eclipse
 
       jruby-rack 暂时用1.0.1, 1.0.3 有bug,jetty下不能显示,首页为浏览目录.
+      --可采用index.html解决
+      --现采用jruby 1.5.6, jruby-rack 1.3.0
 
    2. webapp/WEB-INF/gems 不加入版本
 
@@ -38,7 +40,7 @@ Sill - rails3
    --与jruby.min.runtimes 设置有关,min,max全为1时,时间最短,max 10 ,时间很慢
    --2,4 也还行.但还找不到规律,时快时慢,最后能稳定到300多
    https://github.com/nicksieger/jruby-rack
-   For multi-threaded Rails with a single runtime, set min/max both to 1  
+   For multi-threaded Rails with a single runtime, set min/max both to 1
 
    2. User
 
@@ -49,8 +51,8 @@ Sill - rails3
     end
 
     扩展类方法(class method),这样User可直接用authenticate(login,password), editable_password? 方法
-    --具体参考 http://www.javaeye.com/topic/470421 
-    
+    --具体参考 http://www.javaeye.com/topic/470421
+
     sessions_controller.login
     ..
       User.authenticate(login, password)

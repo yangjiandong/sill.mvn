@@ -1,4 +1,4 @@
-package org.sill.charts;
+package org.sill.charts.jruby;
 
 import org.apache.commons.lang.LocaleUtils;
 import org.jfree.chart.JFreeChart;
@@ -17,7 +17,7 @@ import org.jfree.ui.RectangleAnchor;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.ui.RectangleInsets;
 import org.jfree.ui.TextAnchor;
-import org.sonar.server.charts.deprecated.BaseChart;
+import org.sill.charts.deprecated.BaseChart;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
