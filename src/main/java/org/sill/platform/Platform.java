@@ -36,7 +36,7 @@ public final class Platform {
         connected = true;
 
       } catch (Exception e) {
-        LoggerFactory.getLogger(getClass()).error("Can not start Sonar", e);
+        LoggerFactory.getLogger(getClass()).error("Can not start Sill Server", e);
       }
     }
 

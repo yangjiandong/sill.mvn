@@ -10,12 +10,12 @@
     </layout>
   </appender>
   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <File>file.log</File>
+    <File>dev.log</File>
     <layout class="ch.qos.logback.classic.PatternLayout">
       <Pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</Pattern>
     </layout>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <FileNamePattern>file.log.%d{yyyy-MM-dd'.log'}</FileNamePattern>
+      <FileNamePattern>dev.log.%d{yyyy-MM-dd'.log'}</FileNamePattern>
     </rollingPolicy>
   </appender>
 
@@ -41,7 +41,7 @@
     <level value="INFO"/>
   </logger>
 
-  <logger name="rails.sonar">
+  <logger name="rails.sill">
     <level value="INFO"/>
   </logger>
 

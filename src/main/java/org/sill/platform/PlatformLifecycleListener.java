@@ -10,6 +10,8 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.Enumeration;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 
@@ -22,6 +24,19 @@ public final class PlatformLifecycleListener extends RailsServletContextListener
     Configuration configuration = new ConfigurationFactory().getConfiguration(event);
     Platform.getInstance().init(configuration);
     Platform.getInstance().start();
+
+    Enumeration parameters =  event.getServletContext().getInitParameterNames();
+
+    while(parameters.hasMoreElements()){
+       String name =  (String) parameters.nextElement();
+
+       if (StringUtils.equals("rails.env", name)){
+           if (LOG.isDebugEnabled()) {
+             LOG.debug("rails.env to {}", event.getServletContext().getInitParameter(name));
+           }
+           LOG.info("rails.env to {}", event.getServletContext().getInitParameter(name));
+       }
+    }
 
     ServletContextHandler handler = new ServletContextHandler(event.getServletContext(), configuration);
     ServletContext ctxProxy = (ServletContext) Proxy.newProxyInstance(getClass().getClassLoader(),

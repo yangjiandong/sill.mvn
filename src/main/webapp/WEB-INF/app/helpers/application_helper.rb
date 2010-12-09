@@ -25,42 +25,58 @@ module ApplicationHelper
     end
   end
 
-  def tabs(tabs = nil)
-    tabs ||= controller_path =~ /admin/ ? FatFreeCRM::Tabs.admin : FatFreeCRM::Tabs.main
-    if tabs
-      @current_tab ||= tabs.first[:text] # Select first tab by default.
-      tabs.each { |tab| tab[:active] = (@current_tab == tab[:text] || @current_tab == tab[:url][:controller]) }
-    else
-      raise FatFreeCRM::MissingSettings, "Tab settings are missing, please run <b>rake crm:setup</b> command."
+  # shortcut for the method is_admin?() without parameters. Result is kept in cache.
+  def administrator?
+    @is_administrator ||=
+      begin
+        is_admin?
+      end
+  end
+
+  # JFree Eastwood is a partial implementation of Google Chart Api
+  def gchart(parameters, options={})
+    image_tag("#{ApplicationController.root_context}/gchart?#{parameters}", options)
+  end
+
+  # Piechart for a distribution string or measure (foo=1;bar=2)
+  def piechart(distribution, options={})
+    chart = ""
+    data=nil
+    if distribution
+      data=(distribution.kind_of? ProjectMeasure) ? distribution.data : distribution
     end
-  end
 
-  #----------------------------------------------------------------------------
-  def tabless_layout?
-    #%w(authentications passwords).include?(controller.controller_name) ||
-    #((controller.controller_name == "users") && (%w(create new).include?(controller.action_name)))
-    return false
-  end
-
-  # Show existing flash or embed hidden paragraph ready for flash[:notice]
-  #----------------------------------------------------------------------------
-  def show_flash(options = { :sticky => false })
-    [:error, :warning, :info, :notice].each do |type|
-      if flash[type]
-        html = content_tag(:p, h(flash[type]), :id => "flash")
-        return html << content_tag(:script, "crm.flash('#{type}', #{options[:sticky]})", :type => "text/javascript")
+    if data && data.size > 0
+      labels = []
+      values = []
+      skipZeros = options[:skipZeros].nil? ? true : options[:skipZeros]
+      options[:skipZeros] = nil
+      data.split(';').each do |pair|
+        splitted = pair.split('=')
+        value = splitted[1]
+        next if skipZeros && value.to_i == 0
+        labels << splitted[0]
+        values << value
+      end
+      if labels.size > 0
+        options[:alt] ||= ""
+        chart = gchart("chs=#{options[:size] || '250x90'}&chd=t:#{values.join(',')}&cht=p&chl=#{labels.join('|')}", options)
       end
     end
-    content_tag(:p, nil, :id => "flash", :style => "display:none;")
+    chart
   end
 
-  #----------------------------------------------------------------------------
-  def subtitle(id, hidden = true, text = id.to_s.split("_").last.capitalize)
-    content_tag("div",
-      link_to_remote("<small>#{ hidden ? "&#9658;" : "&#9660;" }</small> #{text}".html_safe,
-        :url    => url_for(:controller => :home, :action => :toggle, :id => id),
-        :before => "crm.flip_subtitle(this)"
-      ), :class => "subtitle")
+  def barchart(options)
+    percent = (options[:percent] || 100).to_i
+    return '' if percent<=0
+
+    width = (options[:width] || 150).to_i
+    color = (options[:color] ? "background-color: #{options[:color]};" : '')
+    "<div class='barchart' style='width: #{width}px'><div style='width: #{percent}%;#{color}'></div></div>"
+  end
+
+  def chart(parameters, options={})
+    image_tag("#{ApplicationController.root_context}/chart?#{parameters}", options)
   end
 
   #----------------------------------------------------------------------------
@@ -68,21 +84,5 @@ module ApplicationHelper
     { :onsubmit => "$('#{form}_submit').disabled = true" }
   end
 
-  #----------------------------------------------------------------------------
-  def hidden;    { :style => "display:none;"       }; end
-  def exposed;   { :style => "display:block;"      }; end
-  def invisible; { :style => "visibility:hidden;"  }; end
-  def visible;   { :style => "visibility:visible;" }; end
-
-  # Ajax helper to pass browser timezone offset to the server.
-  #----------------------------------------------------------------------------
-  def get_browser_timezone_offset
-    unless session[:timezone_offset]
-      remote_function(
-        :url  => timezone_path,
-        :with => "'offset='+(new Date()).getTimezoneOffset()"
-      )
-    end
-  end
 
 end

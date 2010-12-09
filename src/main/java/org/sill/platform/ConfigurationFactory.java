@@ -20,7 +20,7 @@ public final class ConfigurationFactory {
     public Configuration getConfiguration(ServletContextEvent sce) {
         CoreConfiguration configuration = new CoreConfiguration();
         // 装载conf/sill.properties 文件
-        //configuration.addConfiguration(getConfigurationFromPropertiesFile());
+        configuration.addConfiguration(getConfigurationFromPropertiesFile(sce));
         configuration.addConfiguration(new SystemConfiguration());
         configuration.addConfiguration(new EnvironmentConfiguration());
         configuration.addConfiguration(getDirectoriesConfiguration(sce));
@@ -46,8 +46,9 @@ public final class ConfigurationFactory {
     protected PropertiesConfiguration getConfigurationFromPropertiesFile(
             String filename) throws ConfigurationException {
         try {
-            return new PropertiesConfiguration(
-                    ConfigurationFactory.class.getResource(filename));
+            return new PropertiesConfiguration(filename);
+
+                    //ConfigurationFactory.class.getResource(filename));
 
         } catch (org.apache.commons.configuration.ConfigurationException e) {
             throw new ConfigurationException("can not load the file "
@@ -55,9 +56,12 @@ public final class ConfigurationFactory {
         }
     }
 
-    public PropertiesConfiguration getConfigurationFromPropertiesFile()
+    public PropertiesConfiguration getConfigurationFromPropertiesFile(ServletContextEvent sce)
             throws ConfigurationException {
-        return getConfigurationFromPropertiesFile("/conf/sill.properties");
+        String webAppPublicDirPath = sce.getServletContext().getRealPath(
+        "/conf");
+
+        return getConfigurationFromPropertiesFile(webAppPublicDirPath+"/sill.properties");
     }
 
     protected String autodetectWebappDeployDirectory(ServletContextEvent sce) {
