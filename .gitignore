@@ -4,6 +4,7 @@ syntax: glob
 *~
 *.bak
 *.swp
+*.log
 
 .idea/
 .DS_Store
