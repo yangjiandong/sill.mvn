@@ -20,6 +20,7 @@ import org.sill.charts.deprecated.CustomBarChart;
 import org.sill.charts.deprecated.DeprecatedChart;
 import org.sill.charts.deprecated.PieChart;
 import org.sill.charts.deprecated.SparkLinesChart;
+import org.sill.platform.Platform;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,23 +35,23 @@ public class ChartsServlet extends HttpServlet {
       deprecatedDoGet(request, response);
 
     } else {
-        //TODO 暂时不提供
-//      ChartFactory chartFactory = Platform.getInstance().getContainer().getComponent(ChartFactory.class);
-//      Chart chart = chartFactory.getChart(request.getParameter("ck"));
-//      if (chart != null) {
-//        BufferedImage image = chart.generateImage(getParams(request));
-//        OutputStream out = response.getOutputStream();
-//        try {
-//          response.setContentType("image/png");
-//          exportAsPNG(image, out);
-//
-//        } catch (Exception e) {
-//          LOG.error("Generating chart " + chart.getClass().getName(), e);
-//
-//        } finally {
-//          out.close();
-//        }
-//      }
+
+      ChartFactory chartFactory = Platform.getInstance().getContainer().getComponent(ChartFactory.class);
+      Chart chart = chartFactory.getChart(request.getParameter("ck"));
+      if (chart != null) {
+        BufferedImage image = chart.generateImage(getParams(request));
+        OutputStream out = response.getOutputStream();
+        try {
+          response.setContentType("image/png");
+          exportAsPNG(image, out);
+
+        } catch (Exception e) {
+          LOG.error("Generating chart " + chart.getClass().getName(), e);
+
+        } finally {
+          out.close();
+        }
+      }
     }
   }
 
