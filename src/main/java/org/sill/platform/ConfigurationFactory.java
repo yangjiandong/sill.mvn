@@ -19,8 +19,8 @@ public final class ConfigurationFactory {
 
     public Configuration getConfiguration(ServletContextEvent sce) {
         CoreConfiguration configuration = new CoreConfiguration();
-        //CompositeConfiguration configuration = new CompositeConfiguration();
-        configuration.addConfiguration(getConfigurationFromPropertiesFile());
+        // 装载conf/sill.properties 文件
+        //configuration.addConfiguration(getConfigurationFromPropertiesFile());
         configuration.addConfiguration(new SystemConfiguration());
         configuration.addConfiguration(new EnvironmentConfiguration());
         configuration.addConfiguration(getDirectoriesConfiguration(sce));
@@ -57,7 +57,7 @@ public final class ConfigurationFactory {
 
     public PropertiesConfiguration getConfigurationFromPropertiesFile()
             throws ConfigurationException {
-        return getConfigurationFromPropertiesFile("/conf/sonar.properties");
+        return getConfigurationFromPropertiesFile("/conf/sill.properties");
     }
 
     protected String autodetectWebappDeployDirectory(ServletContextEvent sce) {

@@ -393,6 +393,7 @@ mmmm
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-ehcache</artifactId>
         <version>3.3.2.GA</version>
+        <!-- replace by jcl-over-slf4j -->
         <exclusions>
           <exclusion>
             <groupId>commons-logging</groupId>

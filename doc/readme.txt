@@ -1,6 +1,14 @@
 Sill - rails3
 =============
 
+2010.11.09
+----------
+
+   1. 加入sonar项目中platform概念
+
+   pom.xml
+   replace commons-logging by jcl-over-slf4j
+
 2010.11.08
 ----------
 

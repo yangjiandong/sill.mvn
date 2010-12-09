@@ -1,12 +1,10 @@
 package org.sill.platform;
 
-import org.apache.commons.configuration.CompositeConfiguration;
 import org.apache.commons.configuration.Configuration;
-import org.apache.commons.configuration.DatabaseConfiguration;
-
 import org.picocontainer.Characteristics;
 import org.picocontainer.MutablePicoContainer;
 import org.sill.charts.ChartFactory;
+import org.sill.utils.ConfigurationLogger;
 import org.sill.utils.TimeProfiler;
 import org.slf4j.LoggerFactory;
 
@@ -32,17 +30,17 @@ public final class Platform {
   }
 
   public void init(Configuration conf) {
-//    if (!connected) {
-//      try {
-//        startDatabaseConnectors(conf);
-//        connected = true;
-//
-//      } catch (Exception e) {
-//        LoggerFactory.getLogger(getClass()).error("Can not start Sonar", e);
-//      }
-//    }
-//
-    LoggerFactory.getLogger(getClass()).info("start sill platform...");
+    if (!connected) {
+      try {
+        startDatabaseConnectors(conf);
+        connected = true;
+
+      } catch (Exception e) {
+        LoggerFactory.getLogger(getClass()).error("Can not start Sonar", e);
+      }
+    }
+
+    //LoggerFactory.getLogger(getClass()).info("start sill platform...");
   }
 
   public void start() {
@@ -58,20 +56,20 @@ public final class Platform {
     }
   }
 
-//  private void startDatabaseConnectors(Configuration configuration) {
-//    //生成容器
-//    rootContainer = IocContainer.buildPicoContainer();
-//    ConfigurationLogger.log(configuration);
-//
-//    rootContainer.as(Characteristics.CACHE).addComponent(configuration);
+  private void startDatabaseConnectors(Configuration configuration) {
+    //生成容器
+    rootContainer = IocContainer.buildPicoContainer();
+    ConfigurationLogger.log(configuration);
+
+    rootContainer.as(Characteristics.CACHE).addComponent(configuration);
 //    //嵌入式数据库
 //    rootContainer.as(Characteristics.CACHE).addComponent(EmbeddedDatabaseFactory.class);
 //    // hibernate 数据库
 //    rootContainer.as(Characteristics.CACHE).addComponent(JndiDatabaseConnector.class);
-//    rootContainer.start();
-//
-//    // Platform is already starting, so it's registered after the container startup
-//  }
+    rootContainer.start();
+
+    // Platform is already starting, so it's registered after the container startup
+  }
 
 //  private boolean isConnectedToDatabase() {
 //    JndiDatabaseConnector databaseConnector = getContainer().getComponent(JndiDatabaseConnector.class);
@@ -79,7 +77,7 @@ public final class Platform {
 //  }
 
   private void startCoreComponents() {
-//    coreContainer = rootContainer.makeChildContainer();
+    coreContainer = rootContainer.makeChildContainer();
 //    coreContainer.as(Characteristics.CACHE).addComponent(Environment.SERVER);
 //    coreContainer.as(Characteristics.CACHE).addComponent(PluginClassLoaders.class);
 //    coreContainer.as(Characteristics.CACHE).addComponent(PluginDeployer.class);
@@ -94,7 +92,7 @@ public final class Platform {
 //    coreContainer.as(Characteristics.CACHE).addComponent(PluginDownloader.class);
 //    coreContainer.as(Characteristics.NO_CACHE).addComponent(FilterExecutor.class);
 //    coreContainer.as(Characteristics.NO_CACHE).addAdapter(new DatabaseSessionProvider());
-//    coreContainer.start();
+    coreContainer.start();
 //
 //    DatabaseConfiguration dbConfiguration = new DatabaseConfiguration(coreContainer.getComponent(DatabaseSessionFactory.class));
 //    coreContainer.getComponent(CompositeConfiguration.class).addConfiguration(dbConfiguration);

@@ -1,22 +1,3 @@
-/*
- * Sonar, open source software quality management tool.
- * Copyright (C) 2009 SonarSource SA
- * mailto:contact AT sonarsource DOT com
- *
- * Sonar is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
- *
- * Sonar is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with Sonar; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02
- */
 package org.sill.platform;
 
 import org.apache.commons.configuration.Configuration;
@@ -57,11 +38,11 @@ public final class PlatformLifecycleListener extends RailsServletContextListener
   private static final class ServletContextHandler implements InvocationHandler {
 
     private ServletContext context;
-    private String runtimeMode;
+    //private String runtimeMode;
 
     private ServletContextHandler(ServletContext context, Configuration config) {
       this.context = context;
-      runtimeMode = config.getString("sonar.runtime.mode", "production");
+      //runtimeMode = config.getString("sonar.runtime.mode", "production");
     }
 
     public Object invoke(Object proxy, Method method, Object[] args) throws InvocationTargetException, IllegalAccessException {
@@ -71,13 +52,14 @@ public final class PlatformLifecycleListener extends RailsServletContextListener
         if (LOG.isDebugEnabled()) {
           LOG.debug("Ctx init param {}={}", attrName, value);
         }
-        if (StringUtils.equals("rails.env", attrName)) {
-          if (LOG.isDebugEnabled()) {
-            LOG.debug("Override rails.env to {}", runtimeMode);
-          }
-          LOG.info("Runtime mode set to {}", runtimeMode);
-          return runtimeMode;
-        }
+        //直接在web.xml 中定义rails.env
+//        if (StringUtils.equals("rails.env", attrName)) {
+//          if (LOG.isDebugEnabled()) {
+//            LOG.debug("Override rails.env to {}", runtimeMode);
+//          }
+//          LOG.info("Runtime mode set to {}", runtimeMode);
+//          return runtimeMode;
+//        }
       }
       return value;
     }
