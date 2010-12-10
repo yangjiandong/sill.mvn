@@ -3,8 +3,10 @@ package org.sill.charts;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -20,6 +22,9 @@ import org.sill.charts.deprecated.CustomBarChart;
 import org.sill.charts.deprecated.DeprecatedChart;
 import org.sill.charts.deprecated.PieChart;
 import org.sill.charts.deprecated.SparkLinesChart;
+import org.sill.charts.plugin.DistributionAreaChart;
+import org.sill.charts.plugin.DistributionBarChart;
+import org.sill.charts.plugin.XradarChart;
 import org.sill.platform.Platform;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,9 +40,16 @@ public class ChartsServlet extends HttpServlet {
       deprecatedDoGet(request, response);
 
     } else {
+      Map<String, Chart> chartsByKey = new HashMap<String, Chart>();
+      chartsByKey.put("distarea", new DistributionAreaChart());
+      chartsByKey.put("distbar", new DistributionBarChart());
+      chartsByKey.put("xradar", new XradarChart());
 
-      ChartFactory chartFactory = Platform.getInstance().getContainer().getComponent(ChartFactory.class);
-      Chart chart = chartFactory.getChart(request.getParameter("ck"));
+      String chartName = request.getParameter("ck");
+      Chart chart = chartsByKey.get(chartName);
+
+//      ChartFactory chartFactory = Platform.getInstance().getContainer().getComponent(ChartFactory.class);
+//      Chart chart = chartFactory.getChart(request.getParameter("ck"));
       if (chart != null) {
         BufferedImage image = chart.generateImage(getParams(request));
         OutputStream out = response.getOutputStream();
