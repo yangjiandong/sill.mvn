@@ -33,7 +33,7 @@
     <level value="ERROR"/>
   </logger>
 
-  <logger name="org.sill">
+  <logger name="org.sill.INFO">
     <level value="INFO"/>
   </logger>
 
