@@ -32,9 +32,12 @@
       <artifactId>picocontainer</artifactId>
     </dependency>
     <dependency>
+      <groupId>janino</groupId>
+      <artifactId>janino</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>jcl-over-slf4j</artifactId>
-
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>

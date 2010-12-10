@@ -1,12 +1,12 @@
-<% dist_measure = measure(metric) 
-   if dist_measure && !dist_measure.data.blank?
-%>
-<div id="chart_<%=metric -%>" class="chart" style="display: <%= visible ? "block" : "none" %>">
+<% title='test charts' %>
+<% metric='test charts' %>
+
+<div id="chart_aa" class="chart" style="display: block">
 <%
-   query="ck=distbar&c=777777&v=" + u(dist_measure.data)
+   query="ck=distbar&c=777777&v=0%3D5%3B1%3D22%3B2%3D2|0%3D7%3B1%3D15%3B2%3D4&w=500&h=200"
    small_size_query=query + '&w=220&h=100&fs=8&bgc=ffffff'
    big_size_query=query + '&w=300&h=150&fs=12&bgc=CAE3F2'
-%><%= chart(small_size_query, :id => 'chart_img_' + metric, :alt => title) -%>
+%><%= chart(small_size_query, :id => 'chart_img_aa'  , :alt => 'test charts') -%>
 
   <script type='text/javascript'>
   //<![CDATA[
@@ -15,4 +15,3 @@
   //]]>
   </script>
 </div>
-<% end %>

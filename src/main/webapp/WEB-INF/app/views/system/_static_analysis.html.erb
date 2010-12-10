@@ -24,6 +24,29 @@
           <p>icon</p>
         </div>
     </td>
+
+    <td valign="top">
+      <div class="dashbox" id="cmp_charts" style="float:right">
+  <script type='text/javascript'>
+    //<![CDATA[
+    function selectComplexity(metric) {
+      $$('#cmp_charts .chart').each(function(chart) {
+        chart.hide();
+      });
+      $('chart_' + metric).show();
+    }
+  </script>
+  <style>
+    #cmp_charts form {
+    font-size: 93%;padding-left: 30px;
+    }
+  #cmp_charts form label {
+    padding-right: 5px;
+    }
+  </style>
+    <%= render :partial => 'complexity_chart' %>
+
+    </td>
   </tr>
 </table>
 </div>
