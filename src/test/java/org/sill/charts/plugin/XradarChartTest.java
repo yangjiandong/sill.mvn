@@ -27,4 +27,17 @@ public class XradarChartTest extends AbstractChartTest {
     // you have to check visually that it does not work ! Min value is 0. This is a limitation of JFreeChart.
     assertChartSizeGreaterThan(img, 50);
   }
+
+  @Test
+  public void otherXradarChart() throws IOException {
+    String url = "w=140&g=0.25&v=100.0,98.0,100.0,93.799999999999997,99.5&c=777777|F8A036&ck=xradar&l=质量.,Mai.,Por.,Rel.,Usa.&m=100&h=110";
+    XradarChart radar = new XradarChart();
+    BufferedImage img = radar.generateImage(new ChartParameters(url));
+    saveChart(img, "otherXradarChart.png");
+
+    // you have to check visually that it does not work ! Min value is 0. This is a limitation of JFreeChart.
+    //assertChartSizeGreaterThan(img, 50);
+  }
+
+  //Generating chart: {w=140, g=0.25, v=100.0,98.0,100.0,93.799999999999997,99.5, c=777777|F8A036, ck=xradar, l=Eff.,Mai.,Por.,Rel.,Usa., m=100, h=110}
 }

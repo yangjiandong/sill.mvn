@@ -2,6 +2,8 @@ package org.sill.charts.plugin;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.Test;
 import org.sill.charts.ChartParameters;
@@ -74,4 +76,24 @@ public class DistributionBarChartTest extends AbstractChartTest {
     assertChartSizeGreaterThan(image, 500);
     saveChart(image, "DistributionBarChartTest/smallSize.png");
   }
+
+  @Test
+  public void otherSize() throws IOException {
+    DistributionBarChart chart = new DistributionBarChart();
+
+    Map<String, String> map = new HashMap<String, String>();
+    map.put("w","300");
+    map.put("v","1=99;2=30;4=16;6=3;8=1;10=2;12=1");
+    map.put("c","777777");
+    map.put("ck", "distbar");
+    map.put("fs", "12");
+    map.put("bgc", "CAE3F2");
+    map.put("h", "150");
+
+    BufferedImage image = chart.generateImage(new ChartParameters(map));
+    //assertChartSizeGreaterThan(image, 500);
+    saveChart(image, "DistributionBarChartTest/otherSize.png");
+  }
+
+  //{w=300, v=1=99;2=30;4=16;6=3;8=1;10=2;12=1, c=777777, ck=distbar, fs=12, bgc=CAE3F2, h=150}
 }
