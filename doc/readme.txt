@@ -23,6 +23,10 @@ old:http://docs.codehaus.org/display/JETTY/Files+locked+on+Windows
 
    2. prototip 1.0.2 在 rails3 自带prototype 1.7.2 的环境中不能运行
 
+   prototip最新版2.2.2在ie8,chrome下不能正常显示
+   暂时用1.3.5
+   http://www.nickstakenburg.com/projects/prototip/
+
 2010.12.10
 ----------
 
