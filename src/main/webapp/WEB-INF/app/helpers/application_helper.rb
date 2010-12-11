@@ -28,9 +28,9 @@ module ApplicationHelper
   # shortcut for the method is_admin?() without parameters. Result is kept in cache.
   def administrator?
     @is_administrator ||=
-      begin
-        is_admin?
-      end
+    begin
+      is_admin?
+    end
   end
 
   # JFree Eastwood is a partial implementation of Google Chart Api
@@ -82,6 +82,13 @@ module ApplicationHelper
   #----------------------------------------------------------------------------
   def one_submit_only(form)
     { :onsubmit => "$('#{form}_submit').disabled = true" }
+  end
+
+  # Leia mais: http://rafael.adm.br/p/simple-tooltip-helper-for-ruby-on-rails/#ixzz17nyhRSDo
+  def my_tooltip(content, options = {}, html_options = {}, *parameters_for_method_reference)
+    html_options[:title] = options[:tooltip]
+    html_options[:class] = html_options[:class] || 'tooltip'
+    content_tag("span", content, html_options)
   end
 
 

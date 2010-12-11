@@ -28,6 +28,33 @@ old:http://docs.codehaus.org/display/JETTY/Files+locked+on+Windows
    http://www.nickstakenburg.com/projects/prototip/
    --也有问题,显示不完整
 
+   3. 简单 tooltip
+   http://rafael.adm.br/p/simple-tooltip-helper-for-ruby-on-rails/
+
+   4。  How to enable multi-threading in rails
+To enable thread-safe (multi-threaded) mode in Rails when running with a warbler-generated WAR file:
+
+set min/max runtimes in warble.rb to 1/1 respectively
+in config/environment.rb put the line config.threadsafe!
+When running with the GlassFish gem, threadsafe mode will be detected automatically and GlassFish will use only a single JRuby instance. As a result only step 2 above is necessary.
+
+   http://kenai.com/projects/jruby/pages/RailsMulti-ThreadingBestPractices/revisions/2
+
+day:
+2010.12.11 星期六
+-------------------
+
+   早上三鲜店吃了碗鸡蛋面,6元,中午到菜根香吃了碗素鸡面,6元.
+   下午15点到健身房锻炼,没状态,跑步10分钟,30分钟健身,洗澡回家.
+   这个星期一直没什么状态,感觉胸口有堵得感觉.
+
+2010.12.10 星期五
+-------------------
+
+   晚上带晨晨到好比家转转,回来路上买了张杨青林的cd,他本人在brt瞿秋白站唱歌,看了下他的介绍,
+   他参加扶贫工作,一张cd10元,捐5元,这时代能做这事的就要支持,我买了一张后,方面连着几个人买了cd.
+   回家听了听,嗓音不错,唱歌技巧还要提高,唱的歌不耐听,比另一个流浪歌手川子要差点.
+
 2010.12.10
 ----------
 

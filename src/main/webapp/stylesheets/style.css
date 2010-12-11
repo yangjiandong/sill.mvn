@@ -454,7 +454,7 @@ h4, .h4 {
     /* width: 200px; */
     /* height: 100px; */
     /* border: none; */
-    font-size: 20px; 
+    font-size: 20px;
   }
 
 /* ------------------- DOCUMENTATION --------------------- */
@@ -1502,4 +1502,10 @@ table.nowrap td, td.nowrap {
   display: block;
   background: url("../images/restore.gif") no-repeat scroll left 50% transparent;
   padding: 2px 0 2px 20px;
+}
+
+.mytooltip {
+cursor: help;
+color: green;
+border-bottom: 1px dotted green
 }
