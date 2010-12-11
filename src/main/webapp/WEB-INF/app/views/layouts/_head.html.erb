@@ -10,9 +10,10 @@
   end
 %>
 <title><%= title %></title>
-<% if ENV['RAILS_ENV'] == 'production.old'
-%><%= stylesheet_link_tag 'sonar', :media => 'all' %><%= javascript_include_tag 'sonar'
-%><% else %>
+<% if ENV['RAILS_ENV'] == 'production.old'%>
+  <%= stylesheet_link_tag 'sonar', :media => 'all' %>
+  <%= javascript_include_tag 'sonar'%>
+<% else %>
 <%= stylesheet_link_tag 'yui-2.6.0.css', :media => 'all' %>
 <%= stylesheet_link_tag 'calendar', :media => 'all' %>
 <%= stylesheet_link_tag 'style', :media => 'all' %>
@@ -27,9 +28,9 @@
 <%= javascript_include_tag 'rails' %>
 <%= javascript_include_tag 'dragdrop' %>
 <%= javascript_include_tag 'effects' %>
-
-<%= csrf_meta_tag %>
 <% end %>
+<%= csrf_meta_tag %>
+
 <!--[if lte IE 6]>
 <link href="ie6/index" media="all" rel="stylesheet" type="text/css" />
 <![endif]-->

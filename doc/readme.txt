@@ -1,12 +1,34 @@
 Sill - rails3
 =============
 
-2010.11.10
+2010.12.12
+----------
+
+   1. jetty 运行时,html,js文件不能编辑
+http://www.assembla.com/wiki/show/liftweb/Fix_file_locking_problem_with_jettyrun
+Files are locked on Windows and can't be replaced
+old:http://docs.codehaus.org/display/JETTY/Files+locked+on+Windows
+
+   <servlet>
+    <servlet-name>default</servlet-name>
+    <init-param>
+      <param-name>useFileMappedBuffer</param-name>
+      <param-value>false</param-value>
+    </init-param>
+  </servlet>
+
+  或采用webdefault.xml,pom.xml设置
+  <webDefaultXml>${basedir}/src/dev/webdefault.xml</webDefaultXml>
+  --没效果,在sshapp项目上用时起作用
+
+   2. prototip 1.0.2 在 rails3 自带prototype 1.7.2 的环境中不能运行
+
+2010.12.10
 ----------
 
    1. 在ChartsServlet中硬编码charts
 
-2010.11.09
+2010.12.09
 ----------
 
    1. 加入sonar项目中platform概念
@@ -14,7 +36,7 @@ Sill - rails3
    pom.xml
    replace commons-logging by jcl-over-slf4j
 
-2010.11.08
+2010.12.08
 ----------
 
    1. 怪异现象,用mvn jetty:run 报:
@@ -24,7 +46,7 @@ Sill - rails3
    将整个项目移到其它地方d:\a\sill.mvn,配置下config/database.yml development数据源,就能正常.
    原来目录为 d:\workspace\jruby\workspace\sill.mvn\
 
-2010.11.07
+2010.12.07
 ----------
 
    1.  采用mvn.

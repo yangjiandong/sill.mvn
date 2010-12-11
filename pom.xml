@@ -290,6 +290,7 @@
                   <value>${project.build.directory}/sonar-dev-home</value>
                 </systemProperty>
               </systemProperties>
+
             </configuration>
           </plugin>
 

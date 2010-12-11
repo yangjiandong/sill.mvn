@@ -106,6 +106,19 @@
         <listener-class>ch.qos.logback.classic.selector.servlet.ContextDetachingSCL</listener-class>
     </listener>
 
+   <servlet>
+    <servlet-name>default</servlet-name>
+    <!--
+    <servlet-class>org.mortbay.jetty.servlet.DefaultServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+    -->
+    <init-param>
+      <param-name>useFileMappedBuffer</param-name>
+      <param-value>false</param-value>
+    </init-param>
+
+  </servlet>
+
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
