@@ -26,6 +26,7 @@ old:http://docs.codehaus.org/display/JETTY/Files+locked+on+Windows
    prototip最新版2.2.2在ie8,chrome下不能正常显示
    暂时用1.3.5
    http://www.nickstakenburg.com/projects/prototip/
+   --也有问题,显示不完整
 
 2010.12.10
 ----------
