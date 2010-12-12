@@ -41,6 +41,14 @@ When running with the GlassFish gem, threadsafe mode will be detected automatica
    http://kenai.com/projects/jruby/pages/RailsMulti-ThreadingBestPractices/revisions/2
 
 day:
+2010.12.12 星期日
+-------------------
+
+  上午到机械新村,过冬至.
+  三个小孩在一起,比较起来,还是开心最活跃,晨晨表现最差,一声不响,就吃饭倒知道要坐到桌子上,
+  最明显的是开心天天会一起玩,晨晨确总是粘着大人.
+  这几天睡觉特别死,丁奕玲说我打鼾声很大,我只感觉很贪睡,身体状态也不行,昨天称了下体重,58公斤.
+
 2010.12.11 星期六
 -------------------
 
