@@ -6,6 +6,13 @@ Sill - rails3
 
    1. 感觉还是要用extjs,倒底它提供了全套的界面解决方案,不像jquery,prototype,只是个框架,并且应用起来还要考虑插件所依靠的版本问题.
 
+   2. 建立branch use.prototype.js
+   git branch use.prototype.js
+   git push origin use.prototype.js
+
+   3. 引入ext3.3.0
+   public/javascripts/ext
+
 2010.12.12
 ----------
 
