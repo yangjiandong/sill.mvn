@@ -13,6 +13,12 @@ Sill - rails3
    3. 引入ext3.3.0
    public/javascripts/ext
 
+   4. name shrek
+   http://www.google.com/images?hl=en&q=shrek&um=1&ie=UTF-8&source=univ&ei=gQIGTZGWBYOsrAezhPmQDw&sa=X&oi=image_result_group&ct=title&resnum=8&ved=0CHsQsAQwBw&biw=1239&bih=754 
+
+   5. 参考 extrails,
+   http://sourceforge.net/projects/extrails/ 
+
 2010.12.12
 ----------
 

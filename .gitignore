@@ -14,3 +14,4 @@ target
 .classpath
 .project
 git.rm.bat
+test-output

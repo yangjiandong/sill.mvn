@@ -2,6 +2,15 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+# Define application specific global constants
+$FLASHDIV = 'flashnotice'
+$ADMINMODE = true     # Active Acl check is suspended for techusers with admin flag if this is true
+$TIMEOUT = 10000      # Timeout for server requests
+$GRIDHEIGHT = 600
+$MENUTREEFILE = "config/menutree.xml"
+$MYSQLTEXTSIZE = 65535
+$DEFAULTLOGOIMAGE = "#{Rails.root}/public/images/homepage/ev-manager_logo.png"
+
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
