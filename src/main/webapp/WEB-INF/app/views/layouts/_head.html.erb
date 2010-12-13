@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<%
+  if @page_title
+    title="Sill - #{h(@page_title)}"
+  elsif @project
+    title="Sill - #{h(@project.name)}"
+  else
+    title='Sill'
+  end
+%>
+<title><%= title %></title>
+<%= stylesheet_link_tag '../javascripts/ext/resources/css/ext-all.css', :media => 'all' %>
+<%= javascript_include_tag :defaults, :cache => "_cache_extjs"  %>
+<%= javascript_include_tag "application.js" %>
+
+<%= yield(:head) %>
+</head>
