@@ -1,0 +1,6 @@
+<%= render :partial => 'layouts/head' %>
+<% if params[:layout]=='false' %>
+  <%= render :partial => 'layouts/nolayout' %>
+<% else %>
+  <%= render :partial => 'layouts/layout' %>
+<% end %>

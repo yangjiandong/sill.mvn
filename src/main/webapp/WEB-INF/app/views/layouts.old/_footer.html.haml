@@ -1,8 +1,0 @@
-#footer
-  Powered by #{link_to "#{Sill::Info}", "http://www.fatfreecrm.com", :"data-popup" => true }
-  v#{Sill::Version} &copy; 2009-#{Date.today.year} by #{Sill::Development}
-  - unless tabless_layout?
-    \|
-    = link_to('关于.', "#", :title => 'about.', :onclick => "Modalbox.show($('about'), { title: this.title }); return false;")
-%br
-= render :partial => "layouts/about"
