@@ -16,3 +16,4 @@ target
 git.rm.bat
 test-output
 src/main/webapp/dev
+src/main/webapp/javascripts/_cache_extjs.js

@@ -23,6 +23,7 @@
     <jdk.min.version>1.6</jdk.min.version>
     <jruby.version>1.5.6</jruby.version>
     <jruby-rack.version>1.0.3</jruby-rack.version>
+    <jetty.run.version>7.2.0.v20101020</jetty.run.version>
   </properties>
 
   <repositories>
@@ -280,6 +281,28 @@ mmmm
             <wtpversion>2.0</wtpversion>
           </configuration>
         </plugin>
+
+      <plugin>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>${jetty.run.version}</version>
+        <configuration>
+          <webAppConfig>
+            <contextPath>/dev</contextPath>
+          </webAppConfig>
+          <connectors>
+            <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+              <port>9001</port>
+              <maxIdleTime>60000</maxIdleTime>
+            </connector>
+          </connectors>
+
+          <stopPort>9966</stopPort>
+          <stopKey>foo</stopKey>
+          <scanIntervalSeconds>5</scanIntervalSeconds>
+        </configuration>
+      </plugin>
+     
       </plugins>
     </pluginManagement>
   </build>
