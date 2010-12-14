@@ -13,7 +13,7 @@
 
 <% if ENV['RAILS_ENV'] == 'production'%>
   <%= stylesheet_link_tag "../javascripts/ext/resources/css/ext-all", :media => 'all' %>
-  <%= javascript_include_tag "ext/ext-all", :cache => true %>
+  <%= javascript_include_tag "ext/ext-all", :cache => "_cache_extjs" %>
 <% else %>
 <%= stylesheet_link_tag "../javascripts/ext/resources/css/ext-all", :media => 'all' %>
 <%= javascript_include_tag "ext/ext-all-debug" %>
