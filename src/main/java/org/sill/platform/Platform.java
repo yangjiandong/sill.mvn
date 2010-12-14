@@ -170,14 +170,14 @@ public final class Platform {
   public void stop() {
     if (rootContainer != null) {
       try {
-        TimeProfiler profiler = new TimeProfiler().start("Stop sonar");
+        TimeProfiler profiler = new TimeProfiler().start("Stop sill");
         rootContainer.stop();
         rootContainer = null;
         connected = false;
         started = false;
         profiler.stop();
       } catch (Exception e) {
-        LoggerFactory.getLogger(getClass()).debug("Fail to stop Sonar - ignored", e);
+        LoggerFactory.getLogger(getClass()).debug("Fail to stop sill - ignored", e);
       }
     }
   }

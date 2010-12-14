@@ -94,7 +94,10 @@
     </servlet-mapping>
 
     <listener>
-        <listener-class>org.jruby.rack.rails.RailsServletContextListener</listener-class>
+        <listener-class>org.sill.platform.PlatformLifecycleListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>ch.qos.logback.classic.selector.servlet.ContextDetachingSCL</listener-class>
     </listener>
 
     <session-config>

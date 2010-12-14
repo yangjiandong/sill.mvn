@@ -90,8 +90,8 @@
   </logger>
 
   <root>
-    <level value="WARN"/>
-    <appender-ref ref="SILL_FILE"/>
+    <level value="INFO"/>
+    <appender-ref ref="STDOUT"/>
   </root>
 
   <!--
