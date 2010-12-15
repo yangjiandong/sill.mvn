@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101202074207) do
+ActiveRecord::Schema.define(:version => 20101215133434) do
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(:version => 20101202074207) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "t_categories", :force => true do |t|
+    t.string   "name",        :limit => 40
+    t.integer  "parent_id"
+    t.integer  "tree_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.string   "description", :limit => 100
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "t_groups", :force => true do |t|
     t.string   "name",        :limit => 40
