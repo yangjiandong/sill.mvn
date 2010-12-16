@@ -1,12 +1,19 @@
 Sill - rails3
 =============
 
+2010.12.16
+----------
+
+   1. chart - highcharts
+   https://github.com/stonegao/lazy_high_charts 
 
 2010.12.15
 ----------
 
    1. extjs/direct
    https://github.com/extjs/direct-rails.git
+   or
+   https://github.com/stonegao/active-direct 
 
    2. acts_as_nested_set 
    http://www.javaeye.com/topic/76860

@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(:version => 20101215133434) do
 
   create_table "sessions", :force => true do |t|
-    t.string   "session_id",               :null => false
+    t.string   "session_id", :null => false
     t.text     "data"
-    t.datetime "created_at", :limit => 23
-    t.datetime "updated_at", :limit => 23
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(:version => 20101215133434) do
 
   create_table "t_categories", :force => true do |t|
     t.string   "name",        :limit => 40,  :null => false
-    t.integer  "parent_id",   :limit => 10
-    t.integer  "lft",         :limit => 10
-    t.integer  "rgt",         :limit => 10
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
     t.string   "description", :limit => 100
-    t.integer  "depth",       :limit => 10
-    t.datetime "created_at",  :limit => 23
-    t.datetime "updated_at",  :limit => 23
+    t.integer  "depth"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "t_categories", ["name", "parent_id"], :name => "index_category_name_pid"
@@ -38,18 +38,18 @@ ActiveRecord::Schema.define(:version => 20101215133434) do
   create_table "t_groups", :force => true do |t|
     t.string   "name",        :limit => 40
     t.string   "description", :limit => 200
-    t.datetime "created_at",  :limit => 23
-    t.datetime "updated_at",  :limit => 23
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "t_groups_resources", :id => false, :force => true do |t|
-    t.integer "resource_id", :limit => 10
-    t.integer "group_id",    :limit => 10
+    t.integer "resource_id"
+    t.integer "group_id"
   end
 
   create_table "t_groups_users", :id => false, :force => true do |t|
-    t.integer "user_id",  :limit => 10
-    t.integer "group_id", :limit => 10
+    t.integer "user_id"
+    t.integer "group_id"
   end
 
   add_index "t_groups_users", ["group_id"], :name => "index_t_groups_users_on_group_id"
@@ -58,16 +58,16 @@ ActiveRecord::Schema.define(:version => 20101215133434) do
   create_table "t_properties", :force => true do |t|
     t.string  "prop_key",    :limit => 512
     t.string  "prop_value",  :limit => 4000
-    t.integer "resource_id", :limit => 10
-    t.integer "user_id",     :limit => 10
+    t.integer "resource_id"
+    t.integer "user_id"
   end
 
   create_table "t_resources", :force => true do |t|
     t.string   "resname",     :limit => 100
     t.string   "resurl",      :limit => 400
     t.string   "description", :limit => 200
-    t.datetime "created_at",  :limit => 23
-    t.datetime "updated_at",  :limit => 23
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "t_users", :force => true do |t|
@@ -76,10 +76,10 @@ ActiveRecord::Schema.define(:version => 20101215133434) do
     t.string   "email",                     :limit => 100
     t.string   "crypted_password",          :limit => 40
     t.string   "salt",                      :limit => 40
-    t.datetime "created_at",                :limit => 23
-    t.datetime "updated_at",                :limit => 23
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "remember_token",            :limit => 500
-    t.datetime "remember_token_expires_at", :limit => 23
+    t.datetime "remember_token_expires_at"
   end
 
 end
