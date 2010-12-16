@@ -16,12 +16,9 @@
   <%= javascript_include_tag "ext/ext-all", :cache => "cache/all" %>
 <% else %>
   <%= stylesheet_link_tag "../javascripts/ext/resources/css/ext-all", :media => 'all' %>
-  <%= javascript_include_tag :defaults %>
-  <%= javascript_include_tag "ext/adapter/ext/ext-base-debug",
-    "ext/ext-all-debug"
-  %>
-  <%# "ext/adapter/prototype/ext-prototype-adapter-debug" %>
-
+  <%#= javascript_include_tag :defaults %>
+  <%= javascript_include_tag "ext/adapter/ext/ext-base-debug", "ext/ext-all-debug" %>
+  <%#= javascript_include_tag "ext/adapter/prototype/ext-prototype-adapter-debug" %>
 <% end %>
 
 <%# "javascript_include_tag "application" %>

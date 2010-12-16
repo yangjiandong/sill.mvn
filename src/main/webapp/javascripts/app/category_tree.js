@@ -4,23 +4,25 @@ Ext.onReady(function(){
     // shorthand
     var Tree = Ext.tree;
 
-    var tree = new Tree.TreePanel('tree-div', {
-        animate:true,
-        loader: new Tree.TreeLoader({dataUrl:'http://localhost:9001/dev/category/category_tree'}), //修改这里
-        enableDD:true,
-        containerScroll: true
-    });
+    var tree = new Tree.TreePanel({
+        useArrows: true,
+        autoScroll: true,
+        animate: true,
+        enableDD: true,
+        containerScroll: true,
+        border: false,
+        // auto create TreeLoader
+        dataUrl: 'category/category_tree',
 
-    // set the root node
-    var root = new Tree.AsyncTreeNode({
-        text: 'Ext JS',
-        draggable:false,
-        id:'source'
+        root: {
+            nodeType: 'async',
+            text: 'Ext JS',
+            draggable: false,
+            id: 'src'
+        }
     });
-    tree.setRootNode(root);
 
     // render the tree
-    tree.render();
-    root.expand();
+    tree.render('tree-div');
+    tree.getRootNode().expand();
 });
-
