@@ -1,0 +1,54 @@
+Awesome Nested Set Cheat Sheet
+================================
+
+https://github.com/collectiveidea/awesome_nested_set/wiki/Awesome-Nested-Set-Cheat-Sheet
+
+(Based on Bear Den Design’s post )
+
+1. Basic Usage
+
+   Create a root node: science = Category.create!(:name => 'Science')
+
+   Put a new thing inside this root node: physics = Category.create!(:name => 'Physics') physics.move_to_child_of(science)
+
+   Put another inside this "physics" node: gravity = Category.create!(:name => 'Gravity') gravity.move_to_child_of(physics)
+
+   Reload your root node: science.reload
+
+Now you should have something that resembles this: + science |__ physics |____ gravity
+
+2. Advanced Usage
+
+   Accessing levels without a hit to the db: Category.each_with_level(Category.root.self_and_descendants) do |category, level| ... end
+
+3. Accessing the data:
+
+Class methods:
+
+   Category.root	 the first root node
+   Category.roots	 all root nodes
+
+Instance methods:
+
+   my_cat.root	 root for this node.
+   my_cat.level	 the level of this object in the tree. root = 0
+   my_cat.parent	 the node’s immediate parent
+   my_cat.children	 array of immediate children (just those in the next level).
+   my_cat.ancestors	 array of all parents, parents’ parents, etc, excluding self.
+   my_cat.self_and_ancestors	 array of all parents, parents’ parents, etc, including self.
+   my_cat.siblings	 array of brothers and sisters (all at that level), excluding self.
+   my_cat.self_and_siblings	 array of brothers and sisters (all at that level), including self.
+   my_cat.descendants	 array of all children, childrens’ children, etc., excluding self.
+   my_cat.self_and_descendants	 array of all children, childrens’ children, etc., including self.
+   my_cat.leaves	 array of all descendants that have no children.
+
+Instance methods: Tests	 (these don’t need to hit the DB to respond)
+   my_cat.root?	 true if this is a root node
+   my_cat.child?	 true if this is a child node. It has a parent.
+   my_cat.is_ancestor_of?(obj)	 true if nested by any obj
+   my_cat.is_or_is_ancestor_of?(obj)	 true if nested by any obj or self is obj
+   my_cat.is_descendant_of?(obj)	 true if self is nested under obj
+   my_cat.is_or_is_descendant_of?(obj)	 true if self is nested under obj or self is obj
+   my_cat.leaf?	 true if this is a leaf node. It has no children.
+
+Last edited by dougjohnston, September 13, 2010

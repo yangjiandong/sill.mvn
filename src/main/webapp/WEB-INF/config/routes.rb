@@ -18,11 +18,12 @@ Sill::Application.routes.draw do
   resources :groups
 
   # category_tree use extjs
-  match 'category/category_tree', :controller => 'category', :action => 'category_tree'
+  resources :categories, :only => [:index]
+  match 'category/category_tree', :controller => 'categories', :action => 'category_tree'
 
   root :to => 'sessions#login'
-  
-  match '/about', :to => 'static#about', :as => :about 
+
+  match '/about', :to => 'static#about', :as => :about
   # match ':controller(/:action(/:id(.:format)))'
 
   # The priority is based upon order of creation:
