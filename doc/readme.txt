@@ -1,6 +1,7 @@
 Sill - rails3
 =============
 
+
 2010.12.15
 ----------
 
@@ -9,6 +10,7 @@ Sill - rails3
 
    2. acts_as_nested_set 
    http://www.javaeye.com/topic/76860
+   改用: rails plugin install git://github.com/galetahub/awesome_nested_set.git
    cd src\main\webapp\WEB-INF
    rails generate migration create_categories
    rake db:migrate

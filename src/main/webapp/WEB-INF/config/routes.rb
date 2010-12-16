@@ -17,6 +17,9 @@ Sill::Application.routes.draw do
   match 'groups/set_users', :controller => 'groups', :action => 'set_users'
   resources :groups
 
+  # category_tree use extjs
+  match 'category/category_tree', :controller => 'category', :action => 'category_tree'
+
   root :to => 'sessions#login'
   
   match '/about', :to => 'static#about', :as => :about 
