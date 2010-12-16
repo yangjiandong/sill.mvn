@@ -1,6 +1,12 @@
 Sill - rails3
 =============
 
+2010.12.15
+----------
+
+   1. extjs/direct
+   https://github.com/extjs/direct-rails.git
+
 2010.12.14
 ----------
 
