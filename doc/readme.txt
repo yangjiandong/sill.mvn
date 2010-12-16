@@ -7,6 +7,12 @@ Sill - rails3
    1. extjs/direct
    https://github.com/extjs/direct-rails.git
 
+   2. acts_as_nested_set 
+   http://www.javaeye.com/topic/76860
+   cd src\main\webapp\WEB-INF
+   rails generate migration create_categories
+   rake db:migrate
+
 2010.12.14
 ----------
 
