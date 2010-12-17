@@ -1,11 +1,28 @@
 Sill - rails3
 =============
 
+2010.12.17
+----------
+
+   1. production log 采用 log4j
+
+   production.rb:
+
+   require File.dirname(__FILE__) + '/../../lib/slf4j_logger.rb'
+   config.logger = Slf4jLogger.new
+   ActiveRecord::Base.logger = config.logger
+
+   logback.xml:
+  <!-- JRuby on Rails. Uncomment in order to log HTTP and SQL requests -->
+  <logger name="rails">
+    <level value="ERROR"/>
+  </logger>
+
 2010.12.16
 ----------
 
    1. chart - highcharts
-   https://github.com/stonegao/lazy_high_charts 
+   https://github.com/stonegao/lazy_high_charts
 
 2010.12.15
 ----------
@@ -13,9 +30,9 @@ Sill - rails3
    1. extjs/direct
    https://github.com/extjs/direct-rails.git
    or
-   https://github.com/stonegao/active-direct 
+   https://github.com/stonegao/active-direct
 
-   2. acts_as_nested_set 
+   2. acts_as_nested_set
    http://www.javaeye.com/topic/76860
    改用: rails plugin install git://github.com/galetahub/awesome_nested_set.git
    cd src\main\webapp\WEB-INF
@@ -26,7 +43,7 @@ Sill - rails3
 ----------
 
    1. 采用页面缓存时,由于jetty运行配置中设置了webpath 为 dev,所以统一放到webapp/dev下
-   
+
 2010.12.13
 ----------
 
@@ -40,10 +57,10 @@ Sill - rails3
    public/javascripts/ext
 
    4. name shrek
-   http://www.google.com/images?hl=en&q=shrek&um=1&ie=UTF-8&source=univ&ei=gQIGTZGWBYOsrAezhPmQDw&sa=X&oi=image_result_group&ct=title&resnum=8&ved=0CHsQsAQwBw&biw=1239&bih=754 
+   http://www.google.com/images?hl=en&q=shrek&um=1&ie=UTF-8&source=univ&ei=gQIGTZGWBYOsrAezhPmQDw&sa=X&oi=image_result_group&ct=title&resnum=8&ved=0CHsQsAQwBw&biw=1239&bih=754
 
    5. 参考 extrails,
-   http://sourceforge.net/projects/extrails/ 
+   http://sourceforge.net/projects/extrails/
 
 2010.12.12
 ----------

@@ -1,5 +1,3 @@
-Ext.BLANK_IMAGE_URL = './ext/resources/images/default/s.gif';
-
 Ext.onReady(function(){
     // shorthand
     var Tree = Ext.tree;

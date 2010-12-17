@@ -1,5 +1,5 @@
 # extjs json
-class EmployeesController < Application
+class EmployeesController < ApplicationController
 
   def index
     start = (params[:start] || 0).to_i

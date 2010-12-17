@@ -41,7 +41,7 @@
     <level value="INFO"/>
   </logger>
 
-  <logger name="rails.sill">
+  <logger name="rails">
     <level value="INFO"/>
   </logger>
 

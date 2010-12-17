@@ -57,4 +57,14 @@ Sill::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+# 参考sonar
+#config.autoload_paths += %W( #{RAILS_ROOT} + "/lib" )
+# config.load_paths += %W( #{RAILS_ROOT}/lib )
+
+require File.dirname(__FILE__) + '/../../lib/slf4j_logger.rb'
+
+config.logger = Slf4jLogger.new
+ActiveRecord::Base.logger = config.logger
+
 end

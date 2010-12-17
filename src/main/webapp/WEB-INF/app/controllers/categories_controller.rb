@@ -19,14 +19,14 @@ class CategoriesController < ApplicationController
     categories.each { |category|
       if !category.leaf?
         if data.empty?
-          data = [{"text" => category.name,
+          data = [{"text" => category.description,
           "id" => category.id,
           "cls" => "folder",
           "leaf" => false,
           "children" => get_tree(category.children, category)
           }]
         else
-          data.concat([{"text" => category.name,
+          data.concat([{"text" => category.description,
                       "id" => category.id,
                       "cls" => "folder",
                       "leaf" => false,
@@ -35,7 +35,7 @@ class CategoriesController < ApplicationController
 
       else
 
-        data.concat([{"test" => category.name,
+        data.concat([{"text" => category.description,
                     "id" => category.id,
                     "cls" => "file",
                     "leaf" => true}])

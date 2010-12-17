@@ -62,9 +62,9 @@
   </appender>
 
   <!-- JRuby on Rails. Uncomment in order to log HTTP and SQL requests -->
-  <!--<logger name="rails">
-    <level value="DEBUG"/>
-  </logger>-->
+  <logger name="rails">
+    <level value="WARN"/>
+  </logger>
 
   <logger name="org.hibernate.cache.ReadWriteCache">
     <!-- removing "An item was expired by the cache while it was locked (increase your cache timeout)" msg -->

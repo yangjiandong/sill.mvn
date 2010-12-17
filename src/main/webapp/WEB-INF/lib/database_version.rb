@@ -23,6 +23,7 @@ class DatabaseVersion
       rescue
       end
     end
+    Rails.logger.info("sill database migrate current_version:" + result.to_s)
     result
   end
 
@@ -40,6 +41,7 @@ class DatabaseVersion
 
   def self.uptodate?
     unless $uptodate
+      Rails.logger.info("target_version:" + target_version.to_s)
       $uptodate = (current_version>=target_version)
     end
     $uptodate
@@ -56,11 +58,16 @@ class DatabaseVersion
 #  end
 
   def self.automatic_setup
-    if current_version<=0
-      setup
+
+    if current_version < target_version
+       setup
     end
+
+#    if current_version<=0
+#      setup
+#    end
 #    if uptodate?
-#      load_plugin_webservices()
+#      # load_plugin_webservices()
 #    end
     uptodate?
   end
