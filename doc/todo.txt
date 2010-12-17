@@ -95,5 +95,16 @@ ok    9. jrubyc
    Ext.BLANK_IMAGE_URL = 'javascripts/ext/resources/images/default/s.gif';
    没有图片
 
+   13.  REST服务的安全性
+   参考老方的资料:
+   https://github.com/fangzxopensource/tailor/wiki/%E7%94%A8ExtJS%E5%BC%80%E5%8F%91%E5%AE%A2%E6%88%B7%E7%AB%AF-6-%E4%BD%BF%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%9A%84REST%E6%9C%8D%E5%8A%A1
+
+    因为REST服务的无状态特性，导致无法知道当前的请求方是否可靠，所以不得不对每次请求进行验证。
+    本项目要求采用 HTTP Basic Access Authentication验证方式。
+    登录成功后，客户端按照下面的代码样子将验证信息写入，然后ExtJS会在每次调用REST服务时自动传送到服务器端：
+    var up = divo.utils.base64.encode(username + "," + password)
+    Ext.Ajax.defaultHeaders.Authorization = up
+
+
 --END
 
