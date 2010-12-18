@@ -1,0 +1,51 @@
+https://github.com/ncr/background-fu
+= BackgroundFu
+
+* http://github.com/ncr/background-fu
+* git://github.com/ncr/background-fu.git
+* http://trix.lighthouseapp.com/projects/9809-backgroundfu
+* ncr@trix.pl
+* http://trix.pl
+
+== DESCRIPTION:
+
+Background tasks in Ruby On Rails made dead simple.
+
+== FEATURES/PROBLEMS:
+
+* Running long background tasks outside of request-response cycle.
+* Very easy to setup and fun to use (See examples below). 
+* Clean and straightforward approach (database-based priority queue).
+* Uses database table (migration included) to store jobs reliably.
+* Capistrano tasks included. 
+* Generators with migrations and example views (Prototype required) included (to be used with concurrency enabled).
+* Multiple worker daemons available.
+* Easy to deploy in distributed environments.
+* Enables prioritizing and simple scheduling.
+* Optional worker monitoring (good for AJAX progress bars).
+* Proven its stability and reliability in production use.
+
+== SYNOPSIS:
+
+  ruby ./script/generate background
+  rake db:migrate
+  
+  # to run in production mode use RAILS_ENV=production ruby ./script/daemons start
+  ruby ./script/daemons start
+
+  # then try in console:
+    
+  job_id = Job.enqueue!(ExampleWorker, :add, 1, 2).id
+
+  # after few seconds when background daemon completes the job
+
+  Job.find(job_id).result # result of the job should equal 3
+  
+  If you want to use default generated views, update your config/routes.rb:
+  
+  map.namespace "admin" do |admin|
+    admin.resources :jobs
+  end
+  
+  Then you can point your browser to http://localhost:3000/admin/jobs
+

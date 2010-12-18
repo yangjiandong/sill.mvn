@@ -67,10 +67,11 @@ end
     如 datetime 是否可对应成 string, created_at,updated_at
 
 
-    8. memcache 应用
+ok    8. memcache 应用
 
     有空用下https://github.com/ikai/jruby-memcache-client
 
+    采用dalli
 
 ok    9. jrubyc
 
@@ -105,6 +106,10 @@ ok    9. jrubyc
     var up = divo.utils.base64.encode(username + "," + password)
     Ext.Ajax.defaultHeaders.Authorization = up
 
+   14. 后台任务
+   git://github.com/ncr/background-fu.git
+
+   采用plugin 方式,rails plugin install git://github.com/ncr/background-fu.git 
 
 --END
 

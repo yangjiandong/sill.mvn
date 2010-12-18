@@ -22,6 +22,38 @@ Sill - rails3
 
    save/rspec.txt
 
+   3. 后台任务
+   https://github.com/ncr/background-fu
+   采用plugin 方式,
+   save\background.txt
+
+   rails plugin install git://github.com/ncr/background-fu.git
+   rails g background
+   --需修改下background-fu/rails/init.rb
+   --jruby script/background start 不成功
+
+   另一个方案
+   http://github.com/collectiveidea/delayed_job
+   gem 'delayed_job'
+
+   jruby script/rails generate delayed_job
+   rake db:migrate
+   --run
+   rake jobs:work
+
+   相关信息:
+   http://asciicasts.com/episodes/171-delayed-job
+   http://blog.plataformatec.com.br/2010/02/monitoring-delayed-job-with-bluepill-and-capistrano/
+
+   4. 如何格式化"12345"为"12,345"
+javascript:
+Js代码
+string.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, function(s){return s+","})
+
+ruby:
+Ruby代码
+string.gsub(/(\d)(?=(\d\d\d)+(?!\d))/) { |match| match + ',' }
+
 
 2010.12.17
 ----------
