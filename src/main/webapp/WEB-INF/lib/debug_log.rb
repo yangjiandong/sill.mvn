@@ -1,3 +1,4 @@
+# http://zhangzhe.heroku.com/blogs/110-write-debug-info-to-debuglog
 module DebugLog
   def debug_log(info = nil)
     DebugLogger.log("begin log at #{Time.now.to_s(:db)}".center(80, "="))
