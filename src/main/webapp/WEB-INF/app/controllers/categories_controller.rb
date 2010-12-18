@@ -2,7 +2,16 @@ class CategoriesController < ApplicationController
   skip_before_filter :check_authentication
 
   def index
+    
+  end
 
+  def index_json
+    @datas = Category.find(:all)
+ 
+    render :json => {
+        :rows => @datas,
+        :results => @datas.count
+        }, :layout => false
   end
 
   def category_tree

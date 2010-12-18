@@ -18,8 +18,9 @@ Sill::Application.routes.draw do
   resources :groups
 
   # category_tree use extjs
-  resources :categories, :only => [:index]
+  resources :categories #:only => [:index]
   match 'category/category_tree', :controller => 'categories', :action => 'category_tree'
+  match 'category/json', :controller => 'categories', :action => 'index_json'
 
   root :to => 'sessions#login'
 
