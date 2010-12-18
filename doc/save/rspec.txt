@@ -1,0 +1,15 @@
+http://relishapp.com/rspec/rspec-rails
+
+Configure
+
+Add rspec-rails to the :test and :development groups in the Gemfile:
+
+group :test, :development do
+  gem "rspec-rails", "~> 2.0.1"
+end
+It needs to be in the :development group to expose generators and rake tasks without having to type RAILS_ENV=test.
+
+Now you can run:
+
+script/rails generate rspec:install
+

@@ -9,14 +9,18 @@ Sill - rails3
    lib/debug_log, sill.rb增加设置:
    ActionController::Base.send(:include, DebugLog)
    ActiveRecord::Base.send(:include, DebugLog)
-   
-   Based on the code above, made the plugin debug_logger. 
-   How to use: 
-   in model or controller 
+
+   Based on the code above, made the plugin debug_logger.
+   How to use:
+   in model or controller
    debug_log("anything")
 
    log文件存放在log/debug.log
    tail debug.log 可跟踪显示.
+
+   2. rspec
+
+   save/rspec.txt
 
 
 2010.12.17
@@ -53,6 +57,8 @@ Sill - rails3
    2. acts_as_nested_set
    http://www.javaeye.com/topic/76860
    改用: rails plugin install git://github.com/galetahub/awesome_nested_set.git
+   save/ Awesome Nested Set Cheat Sheet.txt
+
    cd src\main\webapp\WEB-INF
    rails generate migration create_categories
    rake db:migrate
