@@ -1,6 +1,24 @@
 Sill - rails3
 =============
 
+2010.12.18
+----------
+
+   1. 另一种debug 方法
+
+   lib/debug_log, sill.rb增加设置:
+   ActionController::Base.send(:include, DebugLog)
+   ActiveRecord::Base.send(:include, DebugLog)
+   
+   Based on the code above, made the plugin debug_logger. 
+   How to use: 
+   in model or controller 
+   debug_log("anything")
+
+   log文件存放在log/debug.log
+   tail debug.log 可跟踪显示.
+
+
 2010.12.17
 ----------
 

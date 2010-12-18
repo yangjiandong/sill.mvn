@@ -7,7 +7,8 @@ class CategoriesController < ApplicationController
 
   def index_json
     @datas = Category.find(:all)
- 
+    debug_log("category,datas:" + @datas.to_json)
+
     render :json => {
         :rows => @datas,
         :results => @datas.count
