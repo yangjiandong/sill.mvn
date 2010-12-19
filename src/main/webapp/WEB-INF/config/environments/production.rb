@@ -11,6 +11,15 @@ Sill::Application.configure do
   #config.cache_store = :file_store
   #, ::Rails.root.to_s + "/public/cache/"
 
+  # http://blog.wpeterson.org/2010/11/23/cache-segmentation-for-rails-apps/
+  # revision_file = Rails.root.join('REVISION')
+  # if File.exist?(revision_file)
+    # revision = File.read(revision_file).match /[a-f,0-9]{6}$/
+  # end
+  # config.cache_store = :mem_cache_store, memcache_host, { :namespace => "volatile-#{ revision ? revision[0] : '0' }" }
+  # config.action_controller.cache_store = :mem_cache_store, memcache_host, { :namespace => 'stable' }
+  # end
+ 
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
