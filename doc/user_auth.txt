@@ -5,7 +5,9 @@
 
    t_users
 
-   注意,采用restful_authentication,登录页面login, new 必须保持一致
+   注意,采用restful-authentication, 
+   https://github.com/technoweenie/restful-authentication 
+   登录页面login, new 必须保持一致
 
    model - User
 

@@ -191,4 +191,12 @@ module AuthenticatedSystem
         :expires => @current_user.remember_token_expires_at }
     end
 
+    # http://stackoverflow.com/questions/1514774/can-restful-authentication-work-with-cookies-disabled
+    #   login_from_basic_auth
+    # def login_from_basic_auth
+      # authenticate_or_request_with_http_basic do |login, password|
+        # self.current_user = User.authenticate(login, password)
+      # end
+    # end
+
 end

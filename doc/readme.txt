@@ -18,6 +18,11 @@ Sill - rails3
 
    4. 采用jruby1.5.6 + jruby rack 1.0.4
 
+   5.  Can restful authentication work with Cookies Disabled? 
+   http://stackoverflow.com/questions/1514774/can-restful-authentication-work-with-cookies-disabled 
+
+   add to lib\authenticate_system.rb
+   --好像多余,已实现
 
 2010.12.18
 ----------
