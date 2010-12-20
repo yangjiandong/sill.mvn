@@ -11,8 +11,10 @@ Sill::Application.configure do
   #config.cache_store = :file_store
   #, ::Rails.root.to_s + "/public/cache/"
 
+  
   # http://blog.wpeterson.org/2010/11/23/cache-segmentation-for-rails-apps/
   # revision_file = Rails.root.join('REVISION')
+  # Cache Segmentation for Rails Apps 
   # if File.exist?(revision_file)
     # revision = File.read(revision_file).match /[a-f,0-9]{6}$/
   # end

@@ -1,6 +1,24 @@
 Sill - rails3
 =============
 
+2010.12.20
+----------
+
+   1. 另一个高并发项目 ,采用了akka
+    https://github.com/danielribeiro/RubyOnAkka
+    -- 没成功
+
+   2. 项目:https://github.com/flyerhzm/rails-bestpractices.com
+    -- 环境为linux,
+
+   3. bullet
+    开发过程中收集query,提供改进信息
+    https://github.com/flyerhzm/bullet
+    -- mvn 环境下不能正常运行,jruby on rails下能运行.
+
+   4. 采用jruby1.5.6 + jruby rack 1.0.4
+
+
 2010.12.18
 ----------
 

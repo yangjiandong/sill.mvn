@@ -22,7 +22,7 @@
     <maven.min.version>2.0</maven.min.version>
     <jdk.min.version>1.6</jdk.min.version>
     <jruby.version>1.5.6</jruby.version>
-    <jruby-rack.version>1.0.3</jruby-rack.version>
+    <jruby-rack.version>1.0.4</jruby-rack.version>
     <jetty.run.version>7.2.0.v20101020</jetty.run.version>
   </properties>
 
@@ -302,7 +302,7 @@ mmmm
           <scanIntervalSeconds>5</scanIntervalSeconds>
         </configuration>
       </plugin>
-     
+
       </plugins>
     </pluginManagement>
   </build>

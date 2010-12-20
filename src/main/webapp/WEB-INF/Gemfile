@@ -35,6 +35,7 @@ group :development do
    gem 'ffaker',             '>= 0.4.0' # Fast Faker for `rake crm:demo:load`
    gem 'rails3-generators'
    gem 'warbler'
+   gem 'bullet'
 end
 
 gem 'yaml_db'
