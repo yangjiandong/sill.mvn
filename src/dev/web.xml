@@ -54,7 +54,16 @@
             <param-name>bufferSize</param-name>
             <param-value>16384</param-value>
         </init-param>
+		<!-- 加了以下参数，压缩率更小，没有mongrel压缩率高 -->
+		<init-param>
+			<param-name>mimeTypes</param-name>
+			<param-value>
+			text/html,text/plain,text/xml,application/xhtml+xml,text/css,application/javascript,image/svg+xml,		text/javascript,application/x-javascript,text/html,image/gif,image/png
+			</param-value>
+		</init-param>
+		
     </filter>
+
     <filter-mapping>
         <filter-name>GZIPFilter</filter-name>
         <url-pattern>/*</url-pattern>
